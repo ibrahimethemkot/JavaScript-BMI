@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <title>Vücut Kitle Endeksi Hesaplama</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <link rel="icon" href="icon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+</head>
+
+<body class="bg-light">
+  <!-- container -->
+  <div class="container my-5 pt-5">
+    <!-- row -->
+    <div class="row">
+      <!-- col -->
+      <div class="col-lg-8 offset-lg-2">
+        <!-- app -->
+        <div class="bg-white border rounded p-3">
+          <!-- tab menu -->
+          <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active text-secondary" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
+                <i class="bi bi-calculator-fill"></i>
+                <span class="ms-1 d-none d-lg-inline-block">
+                  Hesaplama
+                </span>
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link text-secondary" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                  <i class="bi bi-question-circle-fill"></i>
+                  <span class="ms-1 d-none d-lg-inline-block">Nasıl Hesaplanır?</span>
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link text-secondary" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                  <i class="bi bi-table"></i>
+                  <span class="ms-1 d-none d-lg-inline-block">Boy Kitle Endeksi Tablosu</span>
+              </button>
+            </li>
+          </ul>
+          <!-- ./tab-menu -->
+          <!-- tab area -->
+          <div class="tab-content" id="myTabContent">
+            <!-- tab calculation -->
+            <div class="tab-pane fade show active pt-3" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+              tabindex="0">
+              <div class="form-floating">
+                <input type="number" class="form-control" id="boy" placeholder="Boyunuzu giriniz.">
+                <label for="boy" class="text-info">Boyunuzu giriniz.</label>
+              </div>
+              <div class="form-floating mt-3">
+                <input type="number" class="form-control" id="kilo" placeholder="Kilonuzu giriniz.">
+                <label for="kilo" class="text-info">Kilonuzu giriniz.</label>
+              </div>
+              <button type="button" class="btn btn-primary btn-lg w-100 mt-3" onclick="Endeks()">HESAPLA</button>
+              <div id="sonuc" class="bg-light border rounded p-3 mt-3 text-secondary">
+                Lütfen hesaplama işlemi yapınız....
+              </div>
+            </div>
+            <!-- ./tab calculation -->
+            <!-- tab info -->
+            <div class="tab-pane fade pt-3" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+              tabindex="0">
+              <h1 class="text-secondary">Boy & Kilo Endeksi Nedir?</h1>
+              <p class="text-muted">Boy kilo endeksi veya diğer adıyla vücut kitle endeksi, vücudunuzdaki tahmini yağ
+                oranını
+                gösteren bir değerdir.</p>
+              <h1 class="text-secondary">Boy Kilo Endeksi Nasıl Hesaplanır?</h1>
+              <p class="text-muted mb-0">Boy kilo endeksi hesaplamasında boy-kilo oranı kullanılır. Dolayısıyla boy kilo
+                endeksi değeri,
+                boyunuza göre ideal kilonuzun kaç olması gerektiğini gösterir. Vücut ağırlığınız, boyunuzun karesine
+                bölünerek boy
+                kilo cetveli üzerinde ideal kilonuz hesaplanır.</p>
+            </div>
+            <!-- ./tab info -->
+            <!--  -->
+            <div class="tab-pane fade pt-3" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+              <table class="table table-bordered mb-0 text-secondary">
+                <thead>
+                  <tr>
+                    <th>Kategori</th>
+                    <th>Boy Kilo Endeksi - kg/m2</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>İdeal Kilonun Altı</td>
+                    <td class="bg-info text-white">18,49'den düşük</td>
+                  </tr>
+                  <tr>
+                    <td>İdeal Kilo</td>
+                    <td class="bg-success text-white">18.5 - 24,99</td>
+                  </tr>
+                  <tr>
+                    <td>İdeal Kilonun Üzeri</td>
+                    <td class="bg-warning text-dark">25 - 29,99</td>
+                  </tr>
+                  <tr>
+                    <td>İdeal Kilonun Çok Üzeri</td>
+                    <td class="bg-danger text-white">30'dan fazla</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <!--  -->
+          </div>
+          <!-- ./tab area -->
+        </div>
+        <!-- ./app -->
+      </div>
+      <!-- ./col -->
+    </div>
+    <!-- ./row -->
+  </div>
+  <!-- ./container -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+    crossorigin="anonymous"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
